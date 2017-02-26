@@ -37,7 +37,7 @@ public class TestAnagramClass {
 
         String testWord = "anger";
         String expected = "[range, anger]";
-        testGram.setValues(testWord);
+        testGram.addValue(testWord);
 
         String actual = testGram.getValues().toString();
 
@@ -71,5 +71,6 @@ public class TestAnagramClass {
 
 
     }
+
 
 }

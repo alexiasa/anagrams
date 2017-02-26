@@ -42,7 +42,7 @@ public class Anagram {
      * accepts a word and adds it to the Anagram object's values
      * @param anagramWord is an original word that contains the same letters as the Anagram object's key
      */
-    public void setValues(String anagramWord) {
+    public void addValue(String anagramWord) {
         this.values.add(anagramWord);
     }
 }
