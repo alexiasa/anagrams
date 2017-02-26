@@ -2,13 +2,16 @@
  */
 
 import java.util.Hashtable;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class ListOfAnagrams {
-    private Hashtable<String, Anagram> anagramList = new Hashtable<>();
+    private Hashtable<String, Anagram> anagramList;
 
     public ListOfAnagrams(String word) {
+        anagramList = new Hashtable<>();
         this.addNewAnagram(word);
-
     }
 
     public void addNewAnagram(String word) {
@@ -26,9 +29,6 @@ public class ListOfAnagrams {
             System.out.println(key + ":" + anagramList.get(key).getValues());
         }
 
-
-
-
     }
 
     public Anagram findAnagram(String word) {
@@ -40,7 +40,22 @@ public class ListOfAnagrams {
 
     }
 
-    public static void main(String [] args) {
+    public static void main(String [] args) throws FileNotFoundException {
+        Scanner input = new Scanner(System.in);
+        //String filename = input.nextLine();
+        String filename = "../text.txt";
+        File textFile = new File(filename);
+        if(textFile.exists()) {
+            Scanner anagramsIn = new Scanner(textFile);
+            for(int i = 0; i < textFile.length(); i++) {
+                String possibleAnagram = anagramsIn.nextLine();
+
+            }
+        }
+        else {
+            System.out.println("Not a valid filename. Please try again:");
+            filename = input.nextLine();
+        }
 
 
     }
