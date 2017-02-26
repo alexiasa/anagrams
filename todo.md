@@ -1,0 +1,17 @@
+ - ListOfAnagrams class
+      - fields:
+        - Anagram Array/ArrayList anagramList
+      - methods:
+        - public void addNewAnagram(String word, String computedKey) takes the original word that doesn't exist in the as a value based on its computed key and adds the computed key and the original word as a value in a new Anagram object
+        - public void addToAnagram(String word, String computedKey) adds word to the value array of key computedKey existing Anagram object - calls setValues on anagram object
+        - public ArrayList getAnagrams(): return anagramList
+        - public void checkAnagrams(String computedKey): 
+          - check if the computed key is in list of anagrams. 
+          - if it is, then addToAnagram(original word)
+          - else, addNewAnagram(String word, computedKey)
+      - main method: 
+        - accept filename as input from user
+        - read file with a scanner object
+        - create list of anagrams for each word
+        - accept input from user to search for anagrams of a word
+
