@@ -54,10 +54,13 @@ public class ListOfAnagrams {
     public void printAllAnagrams() {
         for (String key : anagramList.keySet()) {
             ArrayList<String> values = anagramList.get(key).getValues();
+            String anagrams = values.toString().replaceAll("\\[|]", "");
+
             if(values.size() > 1) {
-                String anagrams = values.toString().replaceAll("\\[|]", "");
-                System.out.printf("%s are anagrams.", anagrams);
-                System.out.println();
+                System.out.printf("%s are anagrams.\n", anagrams);
+            }
+            else {
+                System.out.printf("%s has no anagrams.\n", anagrams);
             }
         }
 
