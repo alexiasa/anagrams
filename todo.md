@@ -1,9 +1,0 @@
-   - main method: 
-        - accept filename as input from user
-        - read file with a scanner object
-        - create a new anagramList with the very first word
-        - use checkAnagrams: 
-          - if true, then addToAnagram(original word)
-          - else, addNewAnagram(String word, Anagram.computeKey(word))
-        - tell user it's finished and prompt for search
-        - accept input from user to search for anagrams of a word

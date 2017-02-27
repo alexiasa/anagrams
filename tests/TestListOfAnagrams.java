@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class TestListOfAnagrams {
 
-     Anagram setUpGram(String testWord) {
+    Anagram setUpGram(String testWord) {
         return new Anagram(testWord);
 
     }
@@ -58,10 +58,17 @@ class TestListOfAnagrams {
     @Test
     void testCheckAnagrams() {
         ListOfAnagrams testList = setUpList("range");
-        boolean testCheck = testList.checkAnagrams(Anagram.computeKey("anger"));
-
+        boolean testCheck = ListOfAnagrams.checkAnagrams(Anagram.computeKey("anger"), testList.anagramList);
         Assertions.assertEquals(true, testCheck);
 
+    }
+
+
+    @Test
+    void printAnagrams() {
+        ListOfAnagrams testList = setUpList("cat");
+        testList.addToAnagram("act", "act");
+        testList.printAnagrams(Anagram.computeKey("cat"));
 
 
     }
