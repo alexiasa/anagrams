@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -52,20 +53,23 @@ public class ListOfAnagrams {
      */
     public void printAllAnagrams() {
         for (String key : anagramList.keySet()) {
-            System.out.println(key + ":" + anagramList.get(key).getValues());
+            ArrayList<String> values = anagramList.get(key).getValues();
+            if(values.size() > 1) {
+                String anagrams = values.toString().replaceAll("\\[|]", "");
+                System.out.printf("%s are anagrams.", anagrams);
+                System.out.println();
+            }
         }
 
     }
 
     /**
      * @param key key is the computed key of a word.
-     *            This function returns the corresponding Anagram values.
+     *            This function returns the corresponding Anagram values as a String.
      */
-    public void printAnagrams(String key) {
+    public String getAnagrams(String key) {
         String anagramValues = anagramList.get(key).getValues().toString();
-        System.out.print(anagramValues.replaceAll("\\[|]", ""));
-        System.out.print(" are anagrams.");
-
+        return anagramValues.replaceAll("\\[|]", "");
     }
 
     /**
@@ -116,13 +120,19 @@ public class ListOfAnagrams {
             }
 
                 anagramsIn.close();
+                //print all the anagrams
+                allTheAnagrams.printAllAnagrams();
+
+                // Search for specific anagrams
                 Scanner userIn = new Scanner(System.in);
                 //System.out.println("search:");
                 String searchTerm = userIn.nextLine();
                 String searchKey = Anagram.computeKey(searchTerm);
 
                 if (checkAnagrams(searchKey, allTheAnagrams.anagramList)) {
-                    allTheAnagrams.printAnagrams(searchKey);
+                    String someAnagrams = allTheAnagrams.getAnagrams(searchKey);
+                    System.out.printf("The anagrams of %s are %s.", searchTerm, someAnagrams);
+
                 } else {
                     System.out.printf("%s has no anagrams.", searchTerm);
                 }

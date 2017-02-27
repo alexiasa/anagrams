@@ -68,7 +68,7 @@ class TestListOfAnagrams {
     void printAnagrams() {
         ListOfAnagrams testList = setUpList("cat");
         testList.addToAnagram("act", "act");
-        testList.printAnagrams(Anagram.computeKey("cat"));
+        testList.getAnagrams(Anagram.computeKey("cat"));
 
 
     }
