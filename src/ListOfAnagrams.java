@@ -112,7 +112,7 @@ public class ListOfAnagrams {
             ListOfAnagrams allTheAnagrams = new ListOfAnagrams();
 
             while(anagramsIn.hasNext()) {
-                String possibleAnagram = anagramsIn.nextLine();
+                String possibleAnagram = anagramsIn.next();
                 String possibleKey = Anagram.computeKey(possibleAnagram);
 
                 if (checkAnagrams(possibleKey, allTheAnagrams.anagramList)) {
