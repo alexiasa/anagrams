@@ -129,15 +129,18 @@ public class ListOfAnagrams {
                 // Search for specific anagrams
                 Scanner userIn = new Scanner(System.in);
                 //System.out.println("search:");
-                String searchTerm = userIn.nextLine();
-                String searchKey = Anagram.computeKey(searchTerm);
+                if(userIn.hasNextLine()) {
+                    String searchTerm = userIn.nextLine();
 
-                if (checkAnagrams(searchKey, allTheAnagrams.anagramList)) {
-                    String someAnagrams = allTheAnagrams.getAnagrams(searchKey);
-                    System.out.printf("The anagrams of %s are %s.", searchTerm, someAnagrams);
+                    String searchKey = Anagram.computeKey(searchTerm);
 
-                } else {
-                    System.out.printf("%s has no anagrams.", searchTerm);
+                    if (checkAnagrams(searchKey, allTheAnagrams.anagramList)) {
+                        String someAnagrams = allTheAnagrams.getAnagrams(searchKey);
+                        System.out.printf("The anagrams of %s are %s.", searchTerm, someAnagrams);
+
+                    } else {
+                        System.out.printf("%s has no anagrams.", searchTerm);
+                    }
                 }
         }
         else {
